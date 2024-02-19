@@ -1,0 +1,18 @@
+﻿@using Microsoft.AspNetCore.Authorization
+
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<div class="container mt-5">
+    <h1>Profile</h1>
+    <h4>Welcome @User.Identity.Name!</h4>
+    <h5>Email: @ViewData["UserEmail"]</h5>
+    <h5>UserID: @ViewData["UserId"]</h5>
+    @if (User.IsInRole("Admin"))
+    {
+        <h2>Admin</h2>
+    }
+
+    <a asp-action="Logout">Đăng xuất</a>
+</div>

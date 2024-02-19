@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ECommerceC_.ViewModels.ProductVM>
+@foreach (var item in Model)
+{
+	<div class="col-md-6 col-lg-6 col-xl-4">
+		<div class="rounded position-relative fruite-item">
+			<div class="fruite-img">
+				<a asp-action="Detail" asp-controller="Product" asp-route-id="@item.ProductId"></a>
+				<img src="~/Hinh/HangHoa/@item.ProductImg" class="img-fluid w-100 rounded-top" alt="@item.ProductName">
+				@if (User.Identity.IsAuthenticated)
+				{
+					if (User.IsInRole("Admin"))
+					{
+						<a asp-controller="Product" asp-action="Edit" asp-route-id="@item.ProductId">
+							<i class="fa-solid fa-pen-to-square fa-2xl btn btn-primary position-absolute border-primary" style="top: 20px; right: 10px"></i>
+						</a>
+						<a asp-controller="Product" asp-action="Delete" asp-route-id="@item.ProductId">
+							<i class="fa-solid fa-trash fa-2xl btn btn-primary position-absolute border-primary" style="top: 60px; right: 10px"></i>
+						</a>
+					}
+				}
+			</div>
+			<div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">@item.ProductType</div>
+			<div class="p-4 border border-secondary border-top-0 rounded-bottom">
+				<a asp-action="Detail" asp-controller="Product" asp-route-id="@item.ProductId">
+					<h4>@item.ProductName</h4>
+				</a>
+				<p>@item.ProductDescription</p>
+				<div class="d-flex justify-content-between flex-lg-wrap">
+					<p class="text-dark fs-5 fw-bold mb-0">$@item.ProductPrice</p>
+					<a asp-action="AddToCart" asp-controller="Cart" asp-route-id="@item.ProductId" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+				</div>
+			</div>
+		</div>
+	</div>
+}

@@ -1,0 +1,83 @@
+﻿@model ECommerceC_.ViewModels.RegisterVM
+@{
+	ViewData["Title"] = "Register";
+}
+
+<!-- Checkout Page Start -->
+<div class="container-fluid py-5">
+	<div class="container py-5">
+		<h1 class="mb-4">Register New Account</h1>
+		<form asp-action="Register" enctype="multipart/form-data">
+			<div class="row">
+				<div class="col-md-12 col-lg-6">
+					<div class="form-item w-100">
+						<label asp-for="@Model.UserId" class="form-label my-3"></label><sup>*</sup>
+						<input asp-for="@Model.UserId" class="form-control">
+						<span asp-validation-for="@Model.UserId" class="text-danger"></span>
+					</div>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<div class="form-item w-100">
+						<label asp-for="@Model.Password" class="form-label my-3"></label><sup>*</sup>
+						<input asp-for="@Model.Password" class="form-control">
+						<span asp-validation-for="@Model.Password" class="text-danger"></span>
+					</div>
+				</div>
+				
+				<div class="form-item">
+					<label class="form-label my-3" asp-for="@Model.FullName"></label><sup>*</sup>
+					<input asp-for="@Model.FullName" class="form-control">
+					<span asp-validation-for="@Model.FullName" class="text-danger"></span>
+				</div>
+				
+				<div class="row">
+					<div class="form-check my-3 d-inline-block ms-3">
+						<input type="radio" asp-for="@Model.Gender" value="true" class="form-check-input ms-10" id="male" name="gender">
+						<label class="form-check-label" for="male">Male</label>
+					</div>
+					<div class="form-check my-3 d-inline-block ms-3">
+						<input type="radio" asp-for="@Model.Gender" value="false" class="form-check-input m-10" id="female" name="gender">
+						<label class="form-check-label" for="female">Female</label>
+					</div>
+				</div>
+				@* @if ()
+				<div class="form-check my-3 d-inline-block ms-3">
+					<input type="radio" asp-for="@Model.Role" value="true" class="form-check-input ms-10" id="admin" name="admin">
+					<label class="form-check-label" for="admin">Admin</label>
+				</div> *@
+				<div class="form-item">
+					<label class="form-label my-3" asp-for="@Model.DateOfBirth"></label><sup>*</sup>
+					<input asp-for="@Model.DateOfBirth" class="form-control">
+					<span asp-validation-for="@Model.DateOfBirth" class="text-danger"></span>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<div class="form-item w-100">
+						<label asp-for="@Model.PhoneNumber" class="form-label my-3"></label><sup>*</sup>
+						<input asp-for="@Model.PhoneNumber" class="form-control">
+						<span asp-validation-for="@Model.PhoneNumber" class="text-danger"></span>
+					</div>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<div class="form-item w-100">
+						<label asp-for="@Model.Email" class="form-label my-3"></label><sup>*</sup>
+						<input asp-for="@Model.Email" class="form-control">
+						<span asp-validation-for="@Model.Email" class="text-danger"></span>
+					</div>
+				</div>
+				<div class="form-item">
+					<label class="form-label my-3" asp-for="@Model.Address"></label><sup>*</sup>
+					<input asp-for="@Model.Address" class="form-control">
+					<span asp-validation-for="@Model.Address" class="text-danger"></span>
+				</div>
+				<div class="form-item">
+					<label for="UserImg" class="form-label my-3">Avatar</label>
+					<input type="file" name="Img" id="UserImg" class="form-control">
+				</div>
+			</div>
+			<div class="row g-4 text-center align-items-center justify-content-center pt-4">
+				<button type="submit" class="btn border-secondary py-3 px-4 text-uppercase w-50 text-primary">Register</button>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- Checkout Page End -->

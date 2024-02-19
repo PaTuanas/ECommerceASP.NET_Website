@@ -1,0 +1,24 @@
+﻿@model IEnumerable<ECommerceC_.ViewModels.ProductVM>
+@{
+    ViewData["Title"] = "Search";
+    Layout = "_ProductList";
+}
+
+<h1>Search</h1>
+<h6 id="itemFound"></h6>
+@await Html.PartialAsync("ProductItem", Model)
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var productCount = @Model.Count();
+
+        if (productCount == 0) {
+            $("#itemFound").html("No products exist");
+        }
+        if (productCount > 1) {
+            $("#itemFound").html("Found <b>" + productCount + "</b> products");
+        }
+        if (productCount == 1) {
+            $("#itemFound").html("Found <b>" + productCount + "</b> product");
+        }
+    });
+</script>
